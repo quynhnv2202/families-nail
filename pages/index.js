@@ -7,7 +7,11 @@ export default function Home() {
     <>
       <Head>
         <title>Families Nail</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Relax and shine with Families Nail – professional nail services in a welcoming environment."
+        />
+        <link rel="icon" href="/assets/iconnail.png" />
       </Head>
 
       <Layout>

@@ -237,27 +237,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        {/* Bottom Border */}
-        <div className="border-t border-[#4b3b30]/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-[#4b3b30]/60 text-sm">
-              © {new Date().getFullYear()} Families Nail. All rights reserved.
-            </p>
-            <div className="flex space-x-6 text-sm">
-              <Link href="/privacy">
-                <a className="text-[#4b3b30]/60 hover:text-[#4b3b30] transition-colors duration-300">
-                  Privacy Policy
-                </a>
-              </Link>
-              <Link href="/terms">
-                <a className="text-[#4b3b30]/60 hover:text-[#4b3b30] transition-colors duration-300">
-                  Terms of Service
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -4,9 +4,21 @@ import Image from "next/image";
 import Logo from "../../public/assets/logo_nail_families.webp";
 
 const Header = () => {
+  const [scrollActive, setScrollActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollActive(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-[#f5ede3] shadow-sm">
+      <header
+        className={`fixed top-0 w-full z-50 bg-[#f5ede3] ${
+          scrollActive ? "shadow-sm" : ""
+        }`}
+      >
         <nav className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16 grid grid-flow-col items-center py-4 transition-all">
           {/* Logo */}
           <div className="col-start-1 col-end-2 flex items-center">

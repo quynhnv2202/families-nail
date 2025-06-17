@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const images = ["/assets/bg-h2.jpg", "/assets/bg-h4.jpg", "/assets/bg-h5.jpg,"];
+const images = ["/assets/bg-h2.jpg", "/assets/bg-h4.jpg", "/assets/bg-h5.jpg"];
 
 const galleryImages = [
   {

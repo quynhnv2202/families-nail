@@ -49,4 +49,5 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: ["bg-[#f5ede3]", "text-[#4b3b30]", "hover:bg-[#ece1d6]"],
 };
