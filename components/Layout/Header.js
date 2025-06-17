@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 bg-[#f5ede3] ${
+        className={`fixed top-0 w-full z-50 bg-cream ${
           scrollActive ? "shadow-sm" : ""
         }`}
       >
@@ -44,7 +44,7 @@ const Header = () => {
             ].map((link) => (
               <li key={link.name}>
                 <Link href={link.href}>
-                  <a className="mx-4 text-[#333] hover:text-[#4b3b30] hover:underline underline-offset-4 transition-all">
+                  <a className="mx-4 text-coffee hover:text-coffee/80 hover:underline underline-offset-4 transition-all">
                     {link.name}
                   </a>
                 </Link>
@@ -55,12 +55,12 @@ const Header = () => {
           {/* CTA buttons */}
           <div className="col-start-10 col-end-12 flex justify-end items-center space-x-4">
             <Link href="/contact">
-              <a className="border border-[#4b3b30] text-[#4b3b30] px-5 py-2 rounded-full hover:bg-[#ece1d6] transition text-sm">
+              <a className="border border-coffee text-coffee px-5 py-2 rounded-full hover:bg-beige transition text-sm">
                 Call Us
               </a>
             </Link>
             <Link href="/book">
-              <a className="border border-[#4b3b30] text-[#4b3b30] px-5 py-2 rounded-full hover:bg-[#ece1d6] transition text-sm">
+              <a className="border border-coffee text-coffee px-5 py-2 rounded-full hover:bg-beige transition text-sm">
                 Book Now
               </a>
             </Link>
@@ -69,7 +69,7 @@ const Header = () => {
       </header>
 
       {/* Mobile Navigation */}
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-30 bg-[#f5ede3] border-t px-4 py-2 flex justify-between text-sm text-[#4b3b30] shadow-md">
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-30 bg-cream border-t px-4 py-2 flex justify-between text-sm text-coffee shadow-md">
         <Link href="/">
           <a>Home</a>
         </Link>

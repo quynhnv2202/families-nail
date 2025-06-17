@@ -152,14 +152,12 @@ const HomeIntro = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book">
-                  <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[#4b3b30] bg-[#f5ede3] rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                    {/* Fill effect */}
-                    <div className="absolute inset-0 bg-[#4b3b30] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                    <span className="relative z-10 group-hover:text-[#f5ede3] transition-colors duration-300">
+                  <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-coffee bg-cream rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-coffee">
+                    <span className="relative z-10 group-hover:text-cream transition-colors duration-300">
                       BOOK NOW
                     </span>
                     <svg
-                      className="ml-2 w-5 h-5 relative z-10 group-hover:text-[#f5ede3] transition-all duration-300 group-hover:translate-x-1"
+                      className="ml-2 w-5 h-5 relative z-10 group-hover:text-cream transition-all duration-300 group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -178,11 +176,11 @@ const HomeIntro = () => {
                   <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-full overflow-hidden backdrop-blur-sm transition-all duration-300 hover:scale-105">
                     {/* Fill effect */}
                     <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                    <span className="relative z-10 group-hover:text-[#4b3b30] transition-colors duration-300">
+                    <span className="relative z-10 group-hover:text-text-coffee transition-colors duration-300">
                       Services
                     </span>
                     <svg
-                      className="ml-2 w-5 h-5 relative z-10 group-hover:text-[#4b3b30] transition-all duration-300 group-hover:rotate-45"
+                      className="ml-2 w-5 h-5 relative z-10 group-hover:text-text-coffee transition-all duration-300 group-hover:rotate-45"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -203,14 +201,14 @@ const HomeIntro = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="py-20 px-6 sm:px-12 lg:px-24 bg-[#f5ede3]">
+      <section className="py-20 px-6 sm:px-12 lg:px-24 bg-cream">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4b3b30] mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-coffee mb-6">
               About <span className="font-extrabold">Families Nail</span>
             </h2>
-            <div className="w-24 h-1 bg-[#4b3b30] mx-auto mb-8 rounded-full"></div>
-            <p className="text-[#4b3b30]/80 text-xl leading-relaxed max-w-3xl mx-auto font-light">
+            <div className="w-24 h-1 text-coffee mx-auto mb-8 rounded-full"></div>
+            <p className="text-text-coffee/80 text-xl leading-relaxed max-w-3xl mx-auto font-light">
               We are passionate about creating beautiful nails and providing
               exceptional service in a warm, welcoming environment that feels
               like home.
@@ -219,10 +217,10 @@ const HomeIntro = () => {
 
           <div className="flex justify-center mb-16">
             <div className="space-y-6 text-center max-w-2xl">
-              <h3 className="text-3xl font-bold text-[#4b3b30] mb-6">
+              <h3 className="text-3xl font-bold text-text-coffee mb-6">
                 Our Story
               </h3>
-              <p className="text-[#4b3b30]/80 text-lg leading-relaxed">
+              <p className="text-text-coffee/80 text-lg leading-relaxed">
                 Founded with a vision to create a sanctuary where beauty meets
                 relaxation, Families Nail has been serving our community with
                 dedication and artistry. We believe that every client deserves
@@ -247,22 +245,22 @@ const HomeIntro = () => {
         {/* Main Content */}
         <div className="max-w-screen-xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4b3b30] mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-coffee mb-6">
               Our <span className="font-extrabold">Services</span>
             </h2>
-            <div className="w-24 h-1 bg-[#4b3b30] mx-auto mb-8 rounded-full"></div>
+            <div className="w-24 h-1 text-coffee mx-auto mb-8 rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-[#f5ede3] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="bg-cream rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4 shadow-md">
                     <svg
-                      className="w-8 h-8 text-[#4b3b30]"
+                      className="w-8 h-8 text-text-coffee"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -275,7 +273,7 @@ const HomeIntro = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#4b3b30]">
+                  <h3 className="text-2xl font-bold text-text-coffee">
                     {service.category}
                   </h3>
                 </div>
@@ -284,13 +282,13 @@ const HomeIntro = () => {
                   {service.items.map((item, itemIdx) => (
                     <div
                       key={itemIdx}
-                      className="flex justify-between items-center py-3 border-b border-[#4b3b30]/10 last:border-b-0"
+                      className="flex justify-between items-center py-3 border-b border-text-coffee/10 last:border-b-0"
                     >
                       <div>
-                        <p className="font-semibold text-[#4b3b30]">
+                        <p className="font-semibold text-text-coffee">
                           {item.name}
                         </p>
-                        <p className="text-sm text-[#4b3b30]/60 flex items-center mt-1">
+                        <p className="text-sm text-text-coffee/60 flex items-center mt-1">
                           <svg
                             className="w-4 h-4 mr-1"
                             fill="none"
@@ -307,7 +305,7 @@ const HomeIntro = () => {
                           {item.duration}
                         </p>
                       </div>
-                      <span className="text-xl font-bold text-[#4b3b30]">
+                      <span className="text-xl font-bold text-text-coffee">
                         ${item.price}
                       </span>
                     </div>
@@ -319,13 +317,13 @@ const HomeIntro = () => {
         </div>
         <div className="text-center mt-12">
           <Link href="/services">
-            <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[#4b3b30] bg-white rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-[#4b3b30]/20">
-              <div className="absolute inset-0 bg-[#4b3b30] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-              <span className="relative z-10 group-hover:text-[#f5ede3] transition-colors duration-300">
+            <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-text-coffee bg-white rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-text-coffee/20">
+              <div className="absolute inset-0 text-coffee transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+              <span className="relative z-10 group-hover:text-bg-cream transition-colors duration-300">
                 Show More
               </span>
               <svg
-                className="ml-2 w-5 h-5 relative z-10 group-hover:text-[#f5ede3] transition-all duration-300 group-hover:translate-x-1"
+                className="ml-2 w-5 h-5 relative z-10 group-hover:text-bg-cream transition-all duration-300 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -343,10 +341,10 @@ const HomeIntro = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 px-6 sm:px-12 lg:px-24 bg-[#f5ede3]">
+      <section className="py-20 px-6 sm:px-12 lg:px-24 bg-cream">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4b3b30] mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-coffee mb-6">
               Our <span className="font-extrabold">Gallery</span>
             </h2>
           </div>
@@ -364,7 +362,7 @@ const HomeIntro = () => {
                   objectFit="cover"
                   className="transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#4b3b30]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-text-coffee/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm mb-2">
                       {image.alt}
@@ -377,13 +375,13 @@ const HomeIntro = () => {
 
           <div className="text-center mt-12">
             <Link href="/gallery">
-              <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[#4b3b30] bg-white rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-[#4b3b30]/20">
-                <div className="absolute inset-0 bg-[#4b3b30] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                <span className="relative z-10 group-hover:text-[#f5ede3] transition-colors duration-300">
+              <a className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-text-coffee bg-white rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-text-coffee/20">
+                <div className="absolute inset-0 text-coffee transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                <span className="relative z-10 group-hover:text-bg-cream transition-colors duration-300">
                   Show More
                 </span>
                 <svg
-                  className="ml-2 w-5 h-5 relative z-10 group-hover:text-[#f5ede3] transition-all duration-300 group-hover:translate-x-1"
+                  className="ml-2 w-5 h-5 relative z-10 group-hover:text-bg-cream transition-all duration-300 group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -413,17 +411,17 @@ const HomeIntro = () => {
         </div>
         <div className="max-w-screen-xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4b3b30] mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-coffee mb-6">
               Visit <span className="font-extrabold">Our Salon</span>
             </h2>
-            <div className="w-24 h-1 bg-[#4b3b30] mx-auto mb-8 rounded-full"></div>
+            <div className="w-24 h-1 text-coffee mx-auto mb-8 rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="text-center group">
-              <div className="w-20 h-20 bg-[#f5ede3] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                 <svg
-                  className="w-10 h-10 text-[#4b3b30]"
+                  className="w-10 h-10 text-text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -442,10 +440,10 @@ const HomeIntro = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[#4b3b30] mb-4">
+              <h3 className="text-2xl font-bold text-text-coffee mb-4">
                 Location
               </h3>
-              <p className="text-[#4b3b30]/70 leading-relaxed">
+              <p className="text-text-coffee/70 leading-relaxed">
                 123 Beauty Street
                 <br />
                 Downtown, City 12345
@@ -453,9 +451,9 @@ const HomeIntro = () => {
             </div>
 
             <div className="text-center group">
-              <div className="w-20 h-20 bg-[#f5ede3] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                 <svg
-                  className="w-10 h-10 text-[#4b3b30]"
+                  className="w-10 h-10 text-text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -468,10 +466,10 @@ const HomeIntro = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[#4b3b30] mb-4">
+              <h3 className="text-2xl font-bold text-text-coffee mb-4">
                 Contact
               </h3>
-              <p className="text-[#4b3b30]/70 leading-relaxed">
+              <p className="text-text-coffee/70 leading-relaxed">
                 (555) 123-4567
                 <br />
                 info@familiesnail.com
@@ -479,9 +477,9 @@ const HomeIntro = () => {
             </div>
 
             <div className="text-center group">
-              <div className="w-20 h-20 bg-[#f5ede3] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                 <svg
-                  className="w-10 h-10 text-[#4b3b30]"
+                  className="w-10 h-10 text-text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -494,8 +492,10 @@ const HomeIntro = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[#4b3b30] mb-4">Hours</h3>
-              <p className="text-[#4b3b30]/70 leading-relaxed">
+              <h3 className="text-2xl font-bold text-text-coffee mb-4">
+                Hours
+              </h3>
+              <p className="text-text-coffee/70 leading-relaxed">
                 Mon-Sat: 9AM - 7PM
                 <br />
                 Sunday: 10AM - 6PM
