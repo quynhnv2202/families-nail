@@ -1,40 +1,47 @@
-# [Tailwind VPN Landingpage](https://next-landing-vpn.vercel.app/) - Free Landingpage Template Apps
+# 💅 Families Nail - Landing Page
 
-Tailwind VPN Landingpage is an open source, apps landing page template for [Tailwind CSS](https://tailwindcss.com/) and[ NextJS](nextjs.org/) coded by [Faldi](twitter.com/f2aldi) and design from [Didi](https://twitter.com/didiikurniawann).
+Website giới thiệu dịch vụ làm móng tại **Families Nail** – nơi khách hàng được trải nghiệm chăm sóc sắc đẹp trong không gian thân thiện và chuyên nghiệp.
 
-![Landing Page](./landingpage.png)
+![preview](./landingpage.png)
 
-## Getting Started
+---
 
-Choose one of the following options to get started:
+## 🚀 Giới thiệu
 
-- [Download the latest release](https://github.com/naufaldi/next-landing-vpn/archive/main.zip)
-- Clone the repo: `git clone https://github.com/naufaldi/next-landing-vpn.git`
-- Fork the repo
+Families Nail mang đến giao diện hiện đại, mượt mà và chuẩn responsive. Trang web được phát triển bằng **React.js** và **Next.js**, thích hợp cho học tập và triển khai thực tế cho tiệm làm móng.
 
-## About the Template
+---
 
-- Template building using NextJS Version 10
-- Tailwind v2.0
+## 📸 Các phần nổi bật
 
-## Feature Template
+- **Giới thiệu thương hiệu** (Hero section)
+- **Dịch vụ nail** đa dạng (gel, đắp bột, vẽ móng nghệ thuật...)
+- **Bảng giá dịch vụ** rõ ràng, dễ theo dõi
+- **Đánh giá khách hàng** chân thực
+- **Thiết kế đẹp – chuẩn responsive – dễ mở rộng**
 
-- Using [NextJS Image](https://nextjs.org/docs/api-reference/next/image) for Image Optimization
-- Slider using [React Slick](https://react-slick.neostack.com/docs/api)
-- Smooth Scrolling and Active menu using [React Scroll](https://www.npmjs.com/package/react-scroll)
+---
 
-## Bugs and Issues
+## 🛠️ Công nghệ sử dụng
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/naufaldi/next-landing-vpn/issues/new) here on GitHub.
+- [Next.js](https://nextjs.org/) – framework React tối ưu SEO
+- [React.js](https://reactjs.org/) – UI Components
+- [Tailwind CSS](https://tailwindcss.com/) – Styling tiện lợi
+- [Framer Motion](https://www.framer.com/motion/) – Hiệu ứng animation
 
-## Creator
+---
 
-[Tailwind VPN Landingpage](https://next-landing-vpn.vercel.app/) was coded and modified by and is maintained by **[me](https://github.com/naufaldi/)**, and dekstop design by [Didi Kurniawan](https://twitter.com/didiikurniawann)
+## ⚙️ Cài đặt và chạy local
 
-## Copyright and License
+```bash
+# Clone project
+git clone https://github.com/quynhnv2202/families-nail.git
 
-Code released under the MIT license.
+# Di chuyển vào thư mục
+cd families-nail
 
-## To Do List Add Feature
+# Cài đặt thư viện
+npm install
 
-- [ ] Animation using Framer Motion
+# Chạy server local
+npm run dev
