@@ -2,7 +2,6 @@
 
 Website giới thiệu dịch vụ làm móng tại **Families Nail** – nơi khách hàng được trải nghiệm chăm sóc sắc đẹp trong không gian thân thiện và chuyên nghiệp.
 
-![preview](./landingpage.png)
 
 ---
 
