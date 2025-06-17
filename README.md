@@ -1,7 +1,8 @@
 # 💅 Families Nail - Landing Page
 
-Website giới thiệu dịch vụ làm móng tại **Families Nail** – nơi khách hàng được trải nghiệm chăm sóc sắc đẹp trong không gian thân thiện và chuyên nghiệp.
+Dự án ban đầu được lấy cảm hứng từ LaslesVPN Landing Page (open source). Được điều chỉnh và mở rộng bởi [quynhnv2202] cho mục tiêu học React/Next.js và xây dựng landing page cho Families Nail.
 
+Website giới thiệu dịch vụ làm móng tại **Families Nail** – nơi khách hàng được trải nghiệm chăm sóc sắc đẹp trong không gian thân thiện và chuyên nghiệp.
 
 ---
 
@@ -44,3 +45,4 @@ npm install
 
 # Chạy server local
 npm run dev
+```
