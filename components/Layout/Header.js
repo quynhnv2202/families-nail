@@ -38,7 +38,6 @@ const Header = () => {
               { name: "Home", href: "/" },
               { name: "About Us", href: "/about" },
               { name: "Services", href: "/services" },
-              { name: "Policies", href: "/policies" },
               { name: "Gallery", href: "/gallery" },
               { name: "Contact Us", href: "/contact" },
             ].map((link) => (
