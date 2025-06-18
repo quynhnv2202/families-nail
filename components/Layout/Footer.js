@@ -8,7 +8,7 @@ const Tiktok = "/assets/Icon/iconstiktok.png";
 
 const Footer = () => {
   return (
-    <div className="relative pt-20 pb-16 bg-[#f5ede3] text-[#4b3b30] overflow-hidden">
+    <div className="relative pt-20 pb-16 bg-cream text-coffee overflow-hidden">
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-8 lg:px-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -23,8 +23,8 @@ const Footer = () => {
                 className="object-contain"
               />
             </div>
-            <p className="mb-6 text-[#4b3b30]/80 leading-relaxed max-w-xs">
-              <strong className="font-semibold text-[#4b3b30]">
+            <p className="mb-6 text-coffee/80 leading-relaxed max-w-xs">
+              <strong className="font-semibold text-coffee">
                 Families Nail
               </strong>{" "}
               is your local sanctuary for luxury nail services, friendly staff,
@@ -80,42 +80,42 @@ const Footer = () => {
 
           {/* Services */}
           <div className="flex flex-col">
-            <h3 className="mb-6 font-bold text-xl text-[#4b3b30] relative">
+            <h3 className="mb-6 font-bold text-xl text-coffee relative">
               Services
-              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-[#4b3b30] mt-2"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-coffee mt-2"></div>
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/services">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Nail Extensions
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Pedicures
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Gel & Shellac
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Nail Art
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/gallery">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Gallery
                   </a>
                 </Link>
@@ -125,42 +125,42 @@ const Footer = () => {
 
           {/* About */}
           <div className="flex flex-col">
-            <h3 className="mb-6 font-bold text-xl text-[#4b3b30] relative">
+            <h3 className="mb-6 font-bold text-xl text-coffee relative">
               About
-              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-[#4b3b30] mt-2"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-coffee mt-2"></div>
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/about">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Our Story
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Contact
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/faq">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     FAQ
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/privacy">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Privacy Policy
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/terms">
-                  <a className="text-[#4b3b30]/80 hover:text-[#4b3b30] transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                  <a className="text-coffee/80 hover:text-coffee transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     Terms of Service
                   </a>
                 </Link>
@@ -170,14 +170,14 @@ const Footer = () => {
 
           {/* Visit Us */}
           <div className="flex flex-col">
-            <h3 className="mb-6 font-bold text-xl text-[#4b3b30] relative">
+            <h3 className="mb-6 font-bold text-xl text-coffee relative">
               Visit Us
-              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-[#4b3b30] mt-2"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-coffee mt-2"></div>
             </h3>
-            <div className="space-y-3 text-[#4b3b30]/80">
+            <div className="space-y-3 text-coffee/80">
               <div className="flex items-start space-x-2">
                 <svg
-                  className="w-5 h-5 mt-0.5 text-[#4b3b30]"
+                  className="w-5 h-5 mt-0.5 text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ const Footer = () => {
 
               <div className="flex items-center space-x-2">
                 <svg
-                  className="w-5 h-5 text-[#4b3b30]"
+                  className="w-5 h-5 text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -220,7 +220,7 @@ const Footer = () => {
 
               <div className="flex items-center space-x-2">
                 <svg
-                  className="w-5 h-5 text-[#4b3b30]"
+                  className="w-5 h-5 text-coffee"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
