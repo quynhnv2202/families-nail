@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../public/assets/logo_nail_families.webp";
+import { useBookingModal } from "../../context/BookingModalContext";
 
 const Header = () => {
   const [scrollActive, setScrollActive] = useState(false);
+  const { open } = useBookingModal();
 
   useEffect(() => {
     const handleScroll = () => setScrollActive(window.scrollY > 20);
@@ -58,11 +60,12 @@ const Header = () => {
                 Call Us
               </a>
             </Link>
-            <Link href="/book">
-              <a className="border border-coffee text-coffee px-5 py-2 rounded-full hover:bg-beige transition text-sm">
-                Book Now
-              </a>
-            </Link>
+            <button
+              onClick={open}
+              className="border border-coffee text-coffee px-5 py-2 rounded-full hover:bg-beige transition text-sm"
+            >
+              Book Now
+            </button>
           </div>
         </nav>
       </header>
@@ -81,9 +84,7 @@ const Header = () => {
         <Link href="/contact">
           <a>Call</a>
         </Link>
-        <Link href="/book">
-          <a>Book</a>
-        </Link>
+        <button onClick={open}>Book</button>
       </nav>
     </>
   );
