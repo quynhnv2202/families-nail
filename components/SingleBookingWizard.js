@@ -8,7 +8,6 @@ import {
   Check,
   Clock,
   DollarSign,
-  ArrowLeft,
   ChevronLeft,
   ChevronRightIcon,
 } from "lucide-react";
@@ -30,6 +29,7 @@ const SingleBookingWizard = () => {
   const [formErrors, setFormErrors] = useState({});
   const [currentWeekStart, setCurrentWeekStart] = useState(new Date());
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   const router = useRouter();
 
   const serviceCategories = {
@@ -268,7 +268,6 @@ const SingleBookingWizard = () => {
         totalPrice: getTotalPrice(),
         totalDuration: getTotalDuration(),
       };
-
       console.log("Booking confirmed:", bookingSummary);
       setShowSuccessModal(true);
     }
@@ -324,7 +323,6 @@ const SingleBookingWizard = () => {
     // Get the start of the week (Sunday)
     const dayOfWeek = start.getDay();
     start.setDate(start.getDate() - dayOfWeek);
-
     for (let i = 0; i < 7; i++) {
       const day = new Date(start);
       day.setDate(start.getDate() + i);
@@ -360,7 +358,6 @@ const SingleBookingWizard = () => {
   const formatWeekRange = (weekStart) => {
     const currentMonth = weekStart.getMonth();
     const currentYear = weekStart.getFullYear();
-
     return `${monthNames[currentMonth]} ${currentYear}`;
   };
 
@@ -394,21 +391,17 @@ const SingleBookingWizard = () => {
     if (!selectedDateTime?.date || !isToday(selectedDateTime.date)) {
       return false;
     }
-
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
-
     const [time, period] = timeString.split(" ");
     const [hour, minute] = time.split(":").map(Number);
-
     let hour24 = hour;
     if (period === "PM" && hour !== 12) {
       hour24 += 12;
     } else if (period === "AM" && hour === 12) {
       hour24 = 0;
     }
-
     return (
       hour24 < currentHour ||
       (hour24 === currentHour && minute <= currentMinute)
@@ -422,10 +415,83 @@ const SingleBookingWizard = () => {
     return timeSlots.filter((time) => !isPastTime(time));
   };
 
+  const handleContinue = () => {
+    // Reset the booking wizard or navigate to another page
+    setShowSuccessModal(false);
+    setStep(1);
+    setSelectedServices([]);
+    setServiceStaffAssignments({});
+    setSelectedDateTime({ date: new Date(), time: null });
+    setCustomerInfo({ fullName: "", phone: "", email: "" });
+    setFormErrors({});
+  };
+
+  // Success Modal Component
+  if (showSuccessModal) {
+    return (
+      <div className="max-w-2xl mx-auto bg-white border border-gray-300 rounded-2xl shadow-md p-8 text-center">
+        {/* Success Icon */}
+        <div className="flex justify-center mb-6">
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+            <Check className="w-10 h-10 text-green-600" />
+          </div>
+        </div>
+
+        {/* Success Message */}
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
+          Booking Confirmed!
+        </h1>
+        <p className="text-gray-600 mb-8 text-lg">
+          Your booking has been successfully confirmed.
+        </p>
+
+        {/* Booking Details */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 text-left">
+          <h3 className="font-semibold text-lg text-green-800 mb-4">
+            Booking Details
+          </h3>
+          <div className="space-y-2 text-gray-700">
+            <div className="flex justify-between">
+              <span className="font-medium text-green-700">Date:</span>
+              <span>
+                {selectedDateTime?.date
+                  ? selectedDateTime.date.toLocaleDateString()
+                  : "Not selected"}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium text-green-700">Time:</span>
+              <span>{selectedDateTime?.time || "Not selected"}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium text-green-700">Services:</span>
+              <span>
+                {selectedServices.length} service
+                {selectedServices.length > 1 ? "s" : ""}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium text-green-700">Total:</span>
+              <span className="font-semibold">${getTotalPrice()}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Continue Button */}
+        <button
+          onClick={handleContinue}
+          className="bg-orange-200 hover:bg-orange-300 text-gray-800 px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+        >
+          Continue
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-300 rounded-2xl shadow-md">
       {/* Header with Back Button and Breadcrumb */}
-      <div className="p-4 sm:p-6 border-b">
+      <div className="p-4 sm:p-4 border-b">
         <div className="flex items-center justify-between mb-4">
           {step > 1 && (
             <button
@@ -451,33 +517,35 @@ const SingleBookingWizard = () => {
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center justify-center space-x-2 sm:space-x-4">
-          {[1, 2, 3, 4].map((stepNumber, index) => (
-            <div key={stepNumber} className="flex items-center">
-              <button
-                onClick={() =>
-                  canProceedToStep(stepNumber) && setStep(stepNumber)
-                }
-                disabled={!canProceedToStep(stepNumber)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  stepNumber === step
-                    ? "bg-cream text-white shadow-sm"
-                    : stepNumber < step || canProceedToStep(stepNumber)
-                    ? "bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer"
-                    : "bg-gray-50 text-gray-400 cursor-not-allowed"
-                }`}
-              >
-                {getStepTitle(stepNumber)}
-              </button>
-              {index < 3 && (
-                <ChevronRightIcon
-                  className={`w-4 h-4 mx-1 sm:mx-2 ${
-                    stepNumber < step ? "text-gray-400" : "text-gray-300"
+        <div className="overflow-x-auto">
+          <div className="flex items-center justify-start gap-x-2 sm:justify-center whitespace-nowrap px-1">
+            {[1, 2, 3, 4].map((stepNumber, index) => (
+              <div key={stepNumber} className="flex items-center">
+                <button
+                  onClick={() =>
+                    canProceedToStep(stepNumber) && setStep(stepNumber)
+                  }
+                  disabled={!canProceedToStep(stepNumber)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    stepNumber === step
+                      ? "bg-coffee-light text-gray-800 shadow-sm"
+                      : stepNumber < step || canProceedToStep(stepNumber)
+                      ? "bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer"
+                      : "bg-gray-50 text-gray-400 cursor-not-allowed"
                   }`}
-                />
-              )}
-            </div>
-          ))}
+                >
+                  {getStepTitle(stepNumber)}
+                </button>
+                {index < 3 && (
+                  <ChevronRightIcon
+                    className={`w-4 h-4 mx-1 ${
+                      stepNumber < step ? "text-gray-400" : "text-gray-300"
+                    }`}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -499,7 +567,6 @@ const SingleBookingWizard = () => {
                 </div>
               )}
             </div>
-
             <div className="space-y-3 sm:space-y-4">
               {Object.entries(serviceCategories).map(([category, services]) => (
                 <div
@@ -519,7 +586,6 @@ const SingleBookingWizard = () => {
                       <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                     )}
                   </button>
-
                   {expandedCategories[category] && (
                     <div className="divide-y">
                       {services.map((service) => {
@@ -530,7 +596,7 @@ const SingleBookingWizard = () => {
                           <div
                             key={service.id}
                             className={`flex items-center justify-between p-3 sm:p-3 hover:bg-gray-50 cursor-pointer transition-colors ${
-                              isSelected ? "bg-purple-50" : ""
+                              isSelected ? "bg-orange-50" : ""
                             }`}
                             onClick={() => handleServiceToggle(service)}
                           >
@@ -538,7 +604,7 @@ const SingleBookingWizard = () => {
                               <div
                                 className={`w-4 h-4 border-2 rounded flex items-center justify-center flex-shrink-0 ${
                                   isSelected
-                                    ? "bg-cream-600 border-cream-600"
+                                    ? "bg-orange-400 border-orange-400"
                                     : "border-gray-300"
                                 }`}
                               >
@@ -566,29 +632,6 @@ const SingleBookingWizard = () => {
                 </div>
               ))}
             </div>
-
-            {selectedServices.length > 0 && (
-              <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-purple-50 rounded-lg">
-                <h3 className="font-semibold mb-2 text-sm sm:text-base">
-                  Selected Services:
-                </h3>
-                <div className="space-y-1">
-                  {selectedServices.map((service) => (
-                    <div
-                      key={service.id}
-                      className="flex justify-between text-xs sm:text-sm"
-                    >
-                      <span className="truncate mr-2">{service.name}</span>
-                      <span className="flex-shrink-0">${service.price}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="border-t mt-2 pt-2 flex justify-between font-semibold text-sm sm:text-base">
-                  <span>Total: {getTotalDuration()}</span>
-                  <span>${getTotalPrice()}</span>
-                </div>
-              </div>
-            )}
           </div>
         )}
 
@@ -621,7 +664,6 @@ const SingleBookingWizard = () => {
                         </div>
                       </div>
                     </div>
-
                     {/* Right: Dropdown */}
                     <div className="min-w-[200px]">
                       <select
@@ -653,7 +695,6 @@ const SingleBookingWizard = () => {
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
               Pick a Date & Time
             </h2>
-
             {/* Week Calendar */}
             <div className="mb-6">
               <div className="bg-white border rounded-lg p-4">
@@ -661,7 +702,7 @@ const SingleBookingWizard = () => {
                 <div className="flex items-center justify-between mb-4 sm:mb-5">
                   <button
                     onClick={() => navigateWeek(-1)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-cream rounded-lg transition-colors"
                   >
                     <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
@@ -670,12 +711,11 @@ const SingleBookingWizard = () => {
                   </h3>
                   <button
                     onClick={() => navigateWeek(1)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-cream rounded-lg transition-colors"
                   >
                     <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
-
                 {/* Week Grid */}
                 <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
                   {getWeekDays(currentWeekStart).map((date, index) => {
@@ -683,7 +723,6 @@ const SingleBookingWizard = () => {
                     const isCurrentlySelected = isDateSelected(date);
                     const isTodayDate = isToday(date);
                     const isFuture = isFutureDate(date);
-
                     return (
                       <div key={index} className="text-center">
                         <div className="text-xs sm:text-sm font-medium text-gray-800 mb-1">
@@ -695,12 +734,12 @@ const SingleBookingWizard = () => {
                           className={`w-full h-10 sm:h-10 rounded-md sm:rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 border
                         ${
                           isPast
-                            ? "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed opacity-50"
+                            ? "bg-cream text-gray-400 border-gray-200 cursor-not-allowed opacity-50"
                             : isCurrentlySelected
-                            ? "bg-coffee-light text-white border-coffee-light shadow-md ring-2 ring-coffee-light/30"
+                            ? "bg-orange-400 text-white border-orange-400 shadow-md ring-2 ring-orange-400/30"
                             : isTodayDate
-                            ? "bg-beige text-coffee border-beige hover:bg-beige/80"
-                            : "bg-white text-gray-800 border-gray-300 hover:bg-coffee-light/10 hover:border-coffee-light"
+                            ? "bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-200"
+                            : "bg-white text-gray-800 border-gray-300 hover:bg-orange-50 hover:border-orange-300"
                         }
                       `}
                         >
@@ -712,7 +751,6 @@ const SingleBookingWizard = () => {
                 </div>
               </div>
             </div>
-
             {/* Time Slots */}
             <div className="mb-6">
               <h3 className="font-semibold mb-3 text-sm sm:text-base">
@@ -730,8 +768,8 @@ const SingleBookingWizard = () => {
                         isPast
                           ? "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed opacity-50"
                           : selectedDateTime?.time === time
-                          ? "bg-coffee-light text-white border-coffee-light shadow-md ring-2 ring-coffee-light/30"
-                          : "bg-white border-gray-300 text-gray-700 hover:bg-coffee-light/10 hover:border-coffee-light hover:ring-2 hover:ring-coffee-light/30"
+                          ? "bg-orange-400 text-white border-orange-400 shadow-md ring-2 ring-orange-400/30"
+                          : "bg-white border-gray-300 text-gray-700 hover:bg-orange-50 hover:border-orange-300 hover:ring-2 hover:ring-orange-300/30"
                       }
                     `}
                       onClick={() =>
@@ -761,7 +799,6 @@ const SingleBookingWizard = () => {
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
               Booking Confirmation
             </h2>
-
             <div className="space-y-4 sm:space-y-6">
               {/* Customer Information Form */}
               <div className="bg-cream-50 p-3 sm:p-4 rounded-lg">
@@ -792,7 +829,6 @@ const SingleBookingWizard = () => {
                       </p>
                     )}
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Phone Number *
@@ -811,28 +847,6 @@ const SingleBookingWizard = () => {
                     {formErrors.phone && (
                       <p className="text-red-500 text-xs mt-1">
                         {formErrors.phone}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      className={`w-full p-3 border rounded-lg text-sm sm:text-base ${
-                        formErrors.email ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Enter your email address"
-                      value={customerInfo.email}
-                      onChange={(e) =>
-                        handleCustomerInfoChange("email", e.target.value)
-                      }
-                    />
-                    {formErrors.email && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {formErrors.email}
                       </p>
                     )}
                   </div>
@@ -897,34 +911,16 @@ const SingleBookingWizard = () => {
               {/* Action Buttons */}
               <div className="flex justify-end mt-6">
                 <button
-                  className="bg-cream-600 text-white px-6 py-3 rounded-lg font-semibold"
                   onClick={handleConfirmBooking}
+                  className="bg-cream hover:bg-coffee-light disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center"
                 >
-                  Confirm Booking - ${getTotalPrice()}
+                  {`Confirm Booking - $${getTotalPrice()}`}
                 </button>
               </div>
             </div>
           </div>
         )}
       </div>
-      {showSuccessModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-          <div className="bg-beige border border-coffee-light rounded-2xl shadow-2xl max-w-md w-full p-8 sm:p-10 text-center space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-bold text-coffee">
-              Booking Confirmed!
-            </h2>
-            <p className="text-base sm:text-lg text-gray-700">
-              Thank you for your booking. <br /> We look forward to seeing you!
-            </p>
-            <button
-              onClick={() => router.push("/")}
-              className="bg-coffee-light text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-coffee transition"
-            >
-              Continue
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

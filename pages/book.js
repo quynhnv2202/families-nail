@@ -4,6 +4,7 @@ import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
 import { useRouter } from "next/router";
 import SingleBookingWizard from "../components/SingleBookingWizard";
+import GroupBookingWizard from "../components/GroupBookingWizard";
 
 export default function BookPage() {
   const router = useRouter();
@@ -18,9 +19,7 @@ export default function BookPage() {
       <Header />
       <main className="relative max-w-6xl mx-auto z-10 px-6 pt-32 pb-20 bg-bg-cream">
         {type === "single" && <SingleBookingWizard />}
-        {type === "group" && (
-          <p className="text-center">Group booking coming soon</p>
-        )}
+        {type === "group" && <GroupBookingWizard />}
       </main>
       <Footer />
     </>
